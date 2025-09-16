@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ильдар\source\repos\Plagiat\Plagiat\obj\Debug\
+C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\obj\Debug\
 Plagiat
 none
 false
 DEBUG;TRACE
-C:\Users\Ильдар\source\repos\Plagiat\Plagiat\App.xaml
-1219584333
+C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\App.xaml
+2291567322
 
-6-502434485
-13-1310406943
-MainWindow.xaml;
+22-1837549771
+252120609716
+MainWindow.xaml;Views\SimpleParaphraseDialog.xaml;
 
-True
+False
 

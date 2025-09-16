@@ -2,8 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Plagiat"
+        xmlns:converters="clr-namespace:Plagiat"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <hc:ThemeResources RequestedTheme="Dark" UsingSystemTheme="true" SystemThemeChanged="ThemeResources_OnSystemThemeChanged"/>
+                <hc:Theme/>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="BackgroundBrush" Color="#FFFFFF"/>
+                    <SolidColorBrush x:Key="TextBrush" Color="#000000"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:PlagiarismLevelToColorConverter  x:Key="PlagiarismLevelToColorConverter"/>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
