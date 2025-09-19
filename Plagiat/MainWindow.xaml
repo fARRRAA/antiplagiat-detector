@@ -340,6 +340,140 @@
                                     Click="ClearDiagnosticButton_Click"/>
                         </Grid>
                     </hc:TabItem>
+                    
+                    <!-- Вкладка перефразировки -->
+                    <hc:TabItem Header="✨ Перефразировка">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Grid.Row="0" Text="Произвольная перефразировка текста" FontWeight="Bold" Margin="15,15,15,10"/>
+                            
+                            <!-- Область ввода текста -->
+                            <Border Grid.Row="1" Background="#F8F9FA" CornerRadius="8" Margin="15,0,15,10" Padding="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                                        <TextBlock Text="Введите текст для перефразировки:" FontWeight="SemiBold"/>
+                                        <TextBlock Text="💡 Горячие клавиши: Ctrl+Enter - перефразировать, Ctrl+Delete - очистить" 
+                                                   FontSize="10" 
+                                                   Foreground="#7F8C8D" 
+                                                   FontStyle="Italic"
+                                                   Margin="0,2,0,0"/>
+                                    </StackPanel>
+                                    
+                                    <TextBox x:Name="ParaphraseInputTextBox" 
+                                             Grid.Row="1"
+                                             TextWrapping="Wrap"
+                                             AcceptsReturn="True"
+                                             VerticalScrollBarVisibility="Auto"
+                                             HorizontalScrollBarVisibility="Disabled"
+                                             FontSize="12"
+                                             Padding="10"
+                                             MinHeight="200"
+                                             Background="White"
+                                             BorderBrush="#DDD"
+                                             BorderThickness="1"
+                                             Margin="0,0,0,15"
+                                             Text="Введите здесь текст, который хотите перефразировать..."
+                                             Foreground="Gray"
+                                             GotFocus="ParaphraseInputTextBox_GotFocus"
+                                             LostFocus="ParaphraseInputTextBox_LostFocus"
+                                             KeyDown="ParaphraseInputTextBox_KeyDown"/>
+                                    
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Button x:Name="StartParaphraseButton" 
+                                                Content="🔄 Перефразировать"
+                                                Padding="15,8"
+                                                FontSize="14"
+                                                FontWeight="SemiBold"
+                                                Background="#3498DB"
+                                                Foreground="White"
+                                                BorderThickness="0"
+                                                Click="StartParaphraseButton_Click">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" 
+                                                                        CornerRadius="8" 
+                                                                        Padding="{TemplateBinding Padding}">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#2980B9"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Background" Value="#BDC3C7"/>
+                                                            <Setter Property="Foreground" Value="#7F8C8D"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                        
+                                        <Button x:Name="ClearParaphraseButton" 
+                                                Content="🗑️ Очистить"
+                                                Padding="15,8"
+                                                FontSize="14"
+                                                FontWeight="SemiBold"
+                                                Background="#95A5A6"
+                                                Foreground="White"
+                                                BorderThickness="0"
+                                                Margin="10,0,0,0"
+                                                Click="ClearParaphraseButton_Click">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" 
+                                                                        CornerRadius="8" 
+                                                                        Padding="{TemplateBinding Padding}">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#7F8C8D"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            
+                            <!-- Индикатор загрузки -->
+                            <StackPanel Grid.Row="2" x:Name="ParaphraseLoadingPanel" 
+                                        Orientation="Horizontal" 
+                                        HorizontalAlignment="Center"
+                                        Margin="15,0,15,15"
+                                        Visibility="Collapsed">
+                                <hc:LoadingCircle Width="20" Height="20" Margin="0,0,10,0"/>
+                                <TextBlock Text="Генерирую варианты перефразировки..." 
+                                           VerticalAlignment="Center"
+                                           FontStyle="Italic"
+                                           Foreground="#7F8C8D"/>
+                            </StackPanel>
+                        </Grid>
+                    </hc:TabItem>
                 </hc:TabControl>
             </hc:Card>
         </Grid>

@@ -56,6 +56,52 @@ namespace Plagiat.Services
                     project.Status = ProjectStatus.Active;
                 }
 
+                // Если есть документы с цитатами, обрабатываем их источники
+                if (project.Documents != null)
+                {
+                    foreach (var document in project.Documents)
+                    {
+                        if (document.Citations != null)
+                        {
+                            foreach (var citation in document.Citations)
+                            {
+                                // Обрабатываем источник цитаты
+                                if (citation.Source != null)
+                                {
+                                    var existingSource = await FindSimilarSourceAsync(citation.Source);
+                                    if (existingSource != null)
+                                    {
+                                        // Используем существующий источник
+                                        citation.SourceId = existingSource.Id;
+                                        citation.Source = null; // Убираем объект, чтобы не создавать дубликат
+                                    }
+                                    else
+                                    {
+                                        // Сохраняем новый источник
+                                        citation.Source = await SaveSourceAsync(citation.Source);
+                                        citation.SourceId = citation.Source.Id;
+                                    }
+                                }
+                                else if (citation.SourceId > 0)
+                                {
+                                    // Проверяем существование источника по ID
+                                    var sourceExists = await _context.Sources.AnyAsync(s => s.Id == citation.SourceId);
+                                    if (!sourceExists)
+                                    {
+                                        // Если источник не существует, создаём пустой источник
+                                        citation.SourceId = await GetOrCreateUnknownSourceId();
+                                    }
+                                }
+                                else
+                                {
+                                    // Если нет источника вообще, создаём пустой источник
+                                    citation.SourceId = await GetOrCreateUnknownSourceId();
+                                }
+                            }
+                        }
+                    }
+                }
+
                 if (project.Id == 0)
                 {
                     _context.Projects.Add(project);
@@ -159,6 +205,49 @@ namespace Plagiat.Services
                     }
                 }
 
+                // Обрабатываем цитаты документа перед сохранением
+                if (document.Citations != null)
+                {
+                    foreach (var citation in document.Citations)
+                    {
+                        // Устанавливаем DocumentId для цитаты
+                        citation.DocumentId = document.Id;
+                        
+                        // Обрабатываем источник цитаты
+                        if (citation.Source != null)
+                        {
+                            var existingSource = await FindSimilarSourceAsync(citation.Source);
+                            if (existingSource != null)
+                            {
+                                // Используем существующий источник
+                                citation.SourceId = existingSource.Id;
+                                citation.Source = null; // Убираем объект, чтобы не создавать дубликат
+                            }
+                            else
+                            {
+                                // Сохраняем новый источник
+                                citation.Source = await SaveSourceAsync(citation.Source);
+                                citation.SourceId = citation.Source.Id;
+                            }
+                        }
+                        else if (citation.SourceId > 0)
+                        {
+                            // Проверяем существование источника по ID
+                            var sourceExists = await _context.Sources.AnyAsync(s => s.Id == citation.SourceId);
+                            if (!sourceExists)
+                            {
+                                // Если источник не существует, создаём пустой источник
+                                citation.SourceId = await GetOrCreateUnknownSourceId();
+                            }
+                        }
+                        else
+                        {
+                            // Если нет источника вообще, создаём пустой источник
+                            citation.SourceId = await GetOrCreateUnknownSourceId();
+                        }
+                    }
+                }
+
                 if (document.Id == 0)
                 {
                     _context.Documents.Add(document);
@@ -179,6 +268,21 @@ namespace Plagiat.Services
                 }
 
                 await _context.SaveChangesAsync();
+                
+                // После сохранения документа, обновляем DocumentId в цитатах если это новый документ
+                if (document.Citations != null && document.Id > 0)
+                {
+                    foreach (var citation in document.Citations.Where(c => c.DocumentId == 0))
+                    {
+                        citation.DocumentId = document.Id;
+                    }
+                    
+                    if (document.Citations.Any(c => c.DocumentId == 0 || c.Id == 0))
+                    {
+                        await _context.SaveChangesAsync();
+                    }
+                }
+                
                 Console.WriteLine($"Документ сохранен в БД: ID={document.Id}, Title='{document.Title}', Content={document.Content?.Length ?? 0} символов");
                 return document;
             }
@@ -265,27 +369,69 @@ namespace Plagiat.Services
 
         public async Task<Citation> SaveCitationAsync(Citation citation)
         {
-            if (citation.Id == 0)
+            try
             {
-                _context.Citations.Add(citation);
-            }
-            else
-            {
-                var existing = await _context.Citations.FindAsync(citation.Id);
-                if (existing != null)
+                // Обрабатываем источник цитаты перед сохранением
+                if (citation.Source != null)
                 {
-                    existing.QuotedText = citation.QuotedText;
-                    existing.StartPosition = citation.StartPosition;
-                    existing.EndPosition = citation.EndPosition;
-                    existing.Type = citation.Type;
-                    existing.PageNumber = citation.PageNumber;
-                    existing.IsFormatted = citation.IsFormatted;
-                    existing.Style = citation.Style;
+                    var existingSource = await FindSimilarSourceAsync(citation.Source);
+                    if (existingSource != null)
+                    {
+                        // Используем существующий источник
+                        citation.SourceId = existingSource.Id;
+                        citation.Source = null; // Убираем объект, чтобы не создавать дубликат
+                    }
+                    else
+                    {
+                        // Сохраняем новый источник
+                        citation.Source = await SaveSourceAsync(citation.Source);
+                        citation.SourceId = citation.Source.Id;
+                    }
                 }
-            }
+                else if (citation.SourceId > 0)
+                {
+                    // Проверяем существование источника по ID
+                    var sourceExists = await _context.Sources.AnyAsync(s => s.Id == citation.SourceId);
+                    if (!sourceExists)
+                    {
+                        // Если источник не существует, создаём пустой источник
+                        citation.SourceId = await GetOrCreateUnknownSourceId();
+                    }
+                }
+                else
+                {
+                    // Если нет источника вообще, создаём пустой источник
+                    citation.SourceId = await GetOrCreateUnknownSourceId();
+                }
 
-            await _context.SaveChangesAsync();
-            return citation;
+                if (citation.Id == 0)
+                {
+                    _context.Citations.Add(citation);
+                }
+                else
+                {
+                    var existing = await _context.Citations.FindAsync(citation.Id);
+                    if (existing != null)
+                    {
+                        existing.QuotedText = citation.QuotedText;
+                        existing.StartPosition = citation.StartPosition;
+                        existing.EndPosition = citation.EndPosition;
+                        existing.Type = citation.Type;
+                        existing.PageNumber = citation.PageNumber;
+                        existing.IsFormatted = citation.IsFormatted;
+                        existing.Style = citation.Style;
+                        existing.SourceId = citation.SourceId;
+                        existing.DocumentId = citation.DocumentId;
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return citation;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ошибка при сохранении цитаты: {ex.Message}", ex);
+            }
         }
 
         public async Task<List<Citation>> GetCitationsByDocumentIdAsync(int documentId)
@@ -304,6 +450,79 @@ namespace Plagiat.Services
             {
                 _context.Citations.Remove(citation);
                 await _context.SaveChangesAsync();
+            }
+        }
+
+        /// <summary>
+        /// Безопасно сохраняет список цитат, обрабатывая ссылки на источники
+        /// </summary>
+        public async Task SaveCitationsAsync(List<Citation> citations)
+        {
+            try
+            {
+                foreach (var citation in citations)
+                {
+                    // Обрабатываем источник цитаты
+                    if (citation.Source != null)
+                    {
+                        var existingSource = await FindSimilarSourceAsync(citation.Source);
+                        if (existingSource != null)
+                        {
+                            // Используем существующий источник
+                            citation.SourceId = existingSource.Id;
+                            citation.Source = null; // Убираем объект, чтобы не создавать дубликат
+                        }
+                        else
+                        {
+                            // Сохраняем новый источник
+                            citation.Source = await SaveSourceAsync(citation.Source);
+                            citation.SourceId = citation.Source.Id;
+                        }
+                    }
+                    else if (citation.SourceId > 0)
+                    {
+                        // Проверяем существование источника по ID
+                        var sourceExists = await _context.Sources.AnyAsync(s => s.Id == citation.SourceId);
+                        if (!sourceExists)
+                        {
+                            // Если источник не существует, создаём пустой источник
+                            citation.SourceId = await GetOrCreateUnknownSourceId();
+                        }
+                    }
+                    else
+                    {
+                        // Если нет источника вообще, создаём пустой источник
+                        citation.SourceId = await GetOrCreateUnknownSourceId();
+                    }
+
+                    // Добавляем или обновляем цитату
+                    if (citation.Id == 0)
+                    {
+                        _context.Citations.Add(citation);
+                    }
+                    else
+                    {
+                        var existing = await _context.Citations.FindAsync(citation.Id);
+                        if (existing != null)
+                        {
+                            existing.QuotedText = citation.QuotedText;
+                            existing.StartPosition = citation.StartPosition;
+                            existing.EndPosition = citation.EndPosition;
+                            existing.Type = citation.Type;
+                            existing.PageNumber = citation.PageNumber;
+                            existing.IsFormatted = citation.IsFormatted;
+                            existing.Style = citation.Style;
+                            existing.SourceId = citation.SourceId;
+                            existing.DocumentId = citation.DocumentId;
+                        }
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ошибка при сохранении цитат: {ex.Message}", ex);
             }
         }
 
@@ -368,6 +587,36 @@ namespace Plagiat.Services
                 _context.Sources.Remove(source);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        /// <summary>
+        /// Получает или создаёт "неизвестный" источник для цитат без источника
+        /// </summary>
+        private async Task<int> GetOrCreateUnknownSourceId()
+        {
+            // Ищем существующий "неизвестный" источник
+            var unknownSource = await _context.Sources
+                .FirstOrDefaultAsync(s => s.Title == "Неизвестный источник" && s.Author == "Автор не указан");
+
+            if (unknownSource != null)
+            {
+                return unknownSource.Id;
+            }
+
+            // Создаём новый "неизвестный" источник
+            var newUnknownSource = new Source
+            {
+                Title = "Неизвестный источник",
+                Author = "Автор не указан",
+                Type = SourceType.Unknown,
+                IsComplete = false,
+                Year = null
+            };
+
+            _context.Sources.Add(newUnknownSource);
+            await _context.SaveChangesAsync();
+
+            return newUnknownSource.Id;
         }
 
         #endregion

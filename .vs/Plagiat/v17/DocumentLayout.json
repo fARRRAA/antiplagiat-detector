@@ -3,20 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\views\\simpleparaphrasedialog.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\views\\simpleparaphrasedialog.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\views\\simpleparaphrasedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\views\\simpleparaphrasedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|c:\\users\\\u0438\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\views\\simpleparaphrasedialog.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\views\\simpleparaphrasedialog.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\views\\simpleparaphrasedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\views\\simpleparaphrasedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\services\\citationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,10 +62,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Plagiat\\ConfigManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\services\\openrouterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\services\\openrouterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -75,15 +82,8 @@
       "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\models\\plagiarismresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\services\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\services\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|solutionrelative:plagiat\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F33C668-EBBE-4DE4-8803-0082510277FF}|Plagiat\\Plagiat.csproj|C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\plagiat\\data\\plagiatcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -117,17 +117,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Plagiat\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\MainWindow.xaml.cs",
               "RelativeToolTip": "Plagiat\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAOcBAAAAAAAAAAAEwPYBAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAApwI0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T19:21:55.664Z",
               "IsPinned": true,
@@ -180,20 +180,55 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SimpleParaphraseDialog.xaml",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml",
+              "RelativeDocumentMoniker": "Plagiat\\Views\\SimpleParaphraseDialog.xaml",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml",
+              "RelativeToolTip": "Plagiat\\Views\\SimpleParaphraseDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-15T20:35:16.671Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "BibliographyService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\BibliographyService.cs",
-              "RelativeDocumentMoniker": "Plagiat\\Services\\BibliographyService.cs",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\BibliographyService.cs",
-              "RelativeToolTip": "Plagiat\\Services\\BibliographyService.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAqwMEAAAA2AAAAAAAAAA==",
+              "Title": "SimpleParaphraseDialog.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
+              "RelativeDocumentMoniker": "Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
+              "RelativeToolTip": "Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAcwB0BAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T20:10:04.44Z",
+              "WhenOpened": "2025-09-16T13:45:22.417Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.xaml",
+              "RelativeDocumentMoniker": "Plagiat\\App.xaml",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.xaml",
+              "RelativeToolTip": "Plagiat\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-15T19:26:58.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TaskAwaiter.cs",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAEwEEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T12:42:14.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "CitationService.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\CitationService.cs",
               "RelativeDocumentMoniker": "Plagiat\\Services\\CitationService.cs",
@@ -201,12 +236,24 @@
               "RelativeToolTip": "Plagiat\\Services\\CitationService.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAuwBoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T20:10:55.579Z",
+              "WhenOpened": "2025-09-15T20:10:55.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\DataService.cs",
+              "RelativeDocumentMoniker": "Plagiat\\Services\\DataService.cs",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\DataService.cs",
+              "RelativeToolTip": "Plagiat\\Services\\DataService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAD4vy0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T20:10:53.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "MainWindow.g.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\obj\\Debug\\MainWindow.g.cs",
               "RelativeDocumentMoniker": "Plagiat\\obj\\Debug\\MainWindow.g.cs",
@@ -214,49 +261,36 @@
               "RelativeToolTip": "Plagiat\\obj\\Debug\\MainWindow.g.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAwwBgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:46:10.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-16T19:46:10.832Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SimpleParaphraseDialog.xaml",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml",
-              "RelativeDocumentMoniker": "Plagiat\\Views\\SimpleParaphraseDialog.xaml",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml",
-              "RelativeToolTip": "Plagiat\\Views\\SimpleParaphraseDialog.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-15T20:35:16.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SimpleParaphraseDialog.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
-              "RelativeDocumentMoniker": "Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
-              "RelativeToolTip": "Plagiat\\Views\\SimpleParaphraseDialog.xaml.cs",
-              "ViewState": "AgIAAAkBAAAAAAAAAAAcwCUBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T13:45:22.417Z",
+              "DocumentIndex": 4,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.config",
+              "RelativeDocumentMoniker": "Plagiat\\App.config",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.config",
+              "RelativeToolTip": "Plagiat\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-16T19:39:55.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.xaml",
-              "RelativeDocumentMoniker": "Plagiat\\App.xaml",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.xaml",
-              "RelativeToolTip": "Plagiat\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-15T19:26:58.204Z",
-              "EditorCaption": ""
+              "Title": "BibliographyService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\BibliographyService.cs",
+              "RelativeDocumentMoniker": "Plagiat\\Services\\BibliographyService.cs",
+              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\BibliographyService.cs",
+              "RelativeToolTip": "Plagiat\\Services\\BibliographyService.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAqwMEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T20:10:04.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "App.g.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\obj\\Debug\\App.g.cs",
               "RelativeDocumentMoniker": "Plagiat\\obj\\Debug\\App.g.cs",
@@ -264,12 +298,11 @@
               "RelativeToolTip": "Plagiat\\obj\\Debug\\App.g.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAwwBgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:46:19.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-16T19:46:19.718Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "ConfigManager.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\ConfigManager.cs",
               "RelativeDocumentMoniker": "Plagiat\\ConfigManager.cs",
@@ -277,11 +310,12 @@
               "RelativeToolTip": "Plagiat\\ConfigManager.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAwwGMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:24:03.843Z"
+              "WhenOpened": "2025-09-16T19:24:03.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "PlagiarismLevelToColorConverter.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Converters\\PlagiarismLevelToColorConverter.cs",
               "RelativeDocumentMoniker": "Plagiat\\Converters\\PlagiarismLevelToColorConverter.cs",
@@ -289,8 +323,7 @@
               "RelativeToolTip": "Plagiat\\Converters\\PlagiarismLevelToColorConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T13:16:25.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-16T13:16:25.569Z"
             },
             {
               "$type": "Document",
@@ -302,12 +335,11 @@
               "RelativeToolTip": "Plagiat\\AppConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:02:51.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-16T19:02:51.16Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "OpenRouterService.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\OpenRouterService.cs",
               "RelativeDocumentMoniker": "Plagiat\\Services\\OpenRouterService.cs",
@@ -319,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Source.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Models\\Source.cs",
               "RelativeDocumentMoniker": "Plagiat\\Models\\Source.cs",
@@ -331,7 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.xaml.cs",
               "RelativeDocumentMoniker": "Plagiat\\App.xaml.cs",
@@ -343,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "AntiPlagiatService.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\AntiPlagiatService.cs",
               "RelativeDocumentMoniker": "Plagiat\\Services\\AntiPlagiatService.cs",
@@ -355,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Citation.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Models\\Citation.cs",
               "RelativeDocumentMoniker": "Plagiat\\Models\\Citation.cs",
@@ -367,19 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.config",
-              "RelativeDocumentMoniker": "Plagiat\\App.config",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\App.config",
-              "RelativeToolTip": "Plagiat\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-09-16T19:39:55.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "PlagiarismResult.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Models\\PlagiarismResult.cs",
               "RelativeDocumentMoniker": "Plagiat\\Models\\PlagiarismResult.cs",
@@ -387,25 +407,11 @@
               "RelativeToolTip": "Plagiat\\Models\\PlagiarismResult.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAYwBAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T20:10:58.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T20:10:58.335Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "TaskAwaiter.cs",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0e37f1b92ddd42e429f6e6ee93366fb3262674a3e5f4aa676974a114aad2e6ab\\TaskAwaiter.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAawL0AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T12:42:14.255Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "DatabaseInitializer.cs",
               "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\DatabaseInitializer.cs",
               "RelativeDocumentMoniker": "Plagiat\\Services\\DatabaseInitializer.cs",
@@ -473,18 +479,6 @@
               "ViewState": "AgIAADEAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T19:54:39.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DataService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\DataService.cs",
-              "RelativeDocumentMoniker": "Plagiat\\Services\\DataService.cs",
-              "ToolTip": "C:\\Users\\\u0418\u043B\u044C\u0434\u0430\u0440\\source\\repos\\antiplagiat-detector\\Plagiat\\Services\\DataService.cs",
-              "RelativeToolTip": "Plagiat\\Services\\DataService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T20:10:53.874Z"
             }
           ]
         },

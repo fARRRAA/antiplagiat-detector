@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 namespace Plagiat
@@ -103,7 +104,7 @@ namespace Plagiat
             };
             _textChangeTimer.Tick += TextChangeTimer_Tick;
         }
-        private async void NewProjectButton_Click(object sender, RoutedEventArgs e)
+        private void NewProjectButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -317,7 +318,7 @@ namespace Plagiat
         }
         
         // Старые методы для RichTextBox (оставляем для возможного возврата)
-        private async void DocumentRichTextBox_Drop(object sender, DragEventArgs e) { }
+        private void DocumentRichTextBox_Drop(object sender, DragEventArgs e) { }
         private void DocumentRichTextBox_DragEnter(object sender, DragEventArgs e) { }
         private void PlagiarismResultsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -389,6 +390,164 @@ namespace Plagiat
             if (DiagnosticTextBox != null)
             {
                 DiagnosticTextBox.Text = "Лог очищен...\n";
+            }
+        }
+
+        // Обработчики для вкладки перефразировки
+        private async void StartParaphraseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Получаем текст для перефразировки
+                var inputText = ParaphraseInputTextBox?.Text?.Trim();
+                
+                if (string.IsNullOrEmpty(inputText) || inputText == "Введите здесь текст, который хотите перефразировать...")
+                {
+                    ShowWarning("Введите текст для перефразировки");
+                    return;
+                }
+
+                // Показываем индикатор загрузки
+                if (ParaphraseLoadingPanel != null)
+                    ParaphraseLoadingPanel.Visibility = Visibility.Visible;
+                if (StartParaphraseButton != null)
+                    StartParaphraseButton.IsEnabled = false;
+
+                UpdateStatus("Генерация вариантов перефразировки...");
+
+                // Создаем временный результат плагиата для перефразировки
+                var tempResult = new PlagiarismResult
+                {
+                    MatchedText = inputText,
+                    StartPosition = 0,
+                    EndPosition = inputText.Length,
+                    SimilarityPercentage = 100 // Считаем что нужно полностью перефразировать
+                };
+
+                var tempResults = new List<PlagiarismResult> { tempResult };
+
+                // Открываем диалог перефразировки с 3 вариантами
+                var dialog = new Views.MultiParaphraseDialog(tempResults, _openRouterService);
+                dialog.Owner = this;
+
+                if (dialog.ShowDialog() == true)
+                {
+                    var results = dialog.Results;
+                    if (results.ContainsKey(0))
+                    {
+                        var selectedVariant = results[0];
+                        if (!string.IsNullOrEmpty(selectedVariant) && selectedVariant != inputText)
+                        {
+                            // Заменяем текст в поле ввода на выбранный вариант
+                            ParaphraseInputTextBox.Text = selectedVariant;
+                            UpdateStatus("Текст успешно перефразирован");
+                            ShowInfo("Текст успешно перефразирован! Можете скопировать результат или перефразировать еще раз.");
+                        }
+                        else
+                        {
+                            UpdateStatus("Выбран исходный текст");
+                        }
+                    }
+                }
+                else
+                {
+                    UpdateStatus("Перефразировка отменена");
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowError("Ошибка перефразировки", ex.Message);
+                UpdateStatus("Ошибка при перефразировке");
+            }
+            finally
+            {
+                // Скрываем индикатор загрузки
+                if (ParaphraseLoadingPanel != null)
+                    ParaphraseLoadingPanel.Visibility = Visibility.Collapsed;
+                if (StartParaphraseButton != null)
+                    StartParaphraseButton.IsEnabled = true;
+            }
+        }
+
+        private void ClearParaphraseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (ParaphraseInputTextBox != null)
+                {
+                    ParaphraseInputTextBox.Text = "Введите здесь текст, который хотите перефразировать...";
+                    ParaphraseInputTextBox.Foreground = new SolidColorBrush(Colors.Gray);
+                    ParaphraseInputTextBox.Focus();
+                    ParaphraseInputTextBox.SelectAll();
+                }
+                UpdateStatus("Поле ввода очищено");
+            }
+            catch (Exception ex)
+            {
+                ShowError("Ошибка", ex.Message);
+            }
+        }
+
+        private void ParaphraseInputTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var textBox = sender as System.Windows.Controls.TextBox;
+                if (textBox != null && textBox.Text == "Введите здесь текст, который хотите перефразировать...")
+                {
+                    textBox.Text = "";
+                    textBox.Foreground = new SolidColorBrush(Colors.Black);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при обработке фокуса: {ex.Message}");
+            }
+        }
+
+        private void ParaphraseInputTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var textBox = sender as System.Windows.Controls.TextBox;
+                if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = "Введите здесь текст, который хотите перефразировать...";
+                    textBox.Foreground = new SolidColorBrush(Colors.Gray);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при потере фокуса: {ex.Message}");
+            }
+        }
+
+        private void ParaphraseInputTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            try
+            {
+                // Ctrl+Enter - запуск перефразировки
+                if (e.Key == System.Windows.Input.Key.Enter && System.Windows.Input.Keyboard.Modifiers == System.Windows.Input.ModifierKeys.Control)
+                {
+                    e.Handled = true;
+                    if (StartParaphraseButton != null && StartParaphraseButton.IsEnabled)
+                    {
+                        StartParaphraseButton_Click(StartParaphraseButton, new RoutedEventArgs());
+                    }
+                }
+                // Ctrl+Delete - очистка
+                else if (e.Key == System.Windows.Input.Key.Delete && System.Windows.Input.Keyboard.Modifiers == System.Windows.Input.ModifierKeys.Control)
+                {
+                    e.Handled = true;
+                    if (ClearParaphraseButton != null)
+                    {
+                        ClearParaphraseButton_Click(ClearParaphraseButton, new RoutedEventArgs());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка обработки клавиш: {ex.Message}");
             }
         }
         
@@ -1141,7 +1300,7 @@ namespace Plagiat
                 LogToDiagnostic($"Ошибка в RefreshCitationsDisplay: {ex.Message}");
             }
         }
-        private async Task<string> ShowParaphraseVariantsDialog(string originalText, List<string> variants)
+        private string ShowParaphraseVariantsDialog(string originalText, List<string> variants)
         {
             var dialog = new Views.SimpleParaphraseDialog(originalText, variants, _openRouterService);
             dialog.Owner = this;
