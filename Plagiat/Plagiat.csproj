@@ -94,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\MultiParaphraseDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -116,6 +120,9 @@
     <Compile Include="Services\BibliographyService.cs" />
     <Compile Include="Views\SimpleParaphraseDialog.xaml.cs">
       <DependentUpon>SimpleParaphraseDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiParaphraseDialog.xaml.cs">
+      <DependentUpon>MultiParaphraseDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\PlagiatContext.cs" />
     <Compile Include="Services\DataService.cs" />

@@ -156,8 +156,35 @@ namespace Plagiat.Services
                 try
                 {
                     Console.WriteLine($"Чтение TXT файла: {filePath}");
-                    var content = File.ReadAllText(filePath, Encoding.UTF8);
+                    
+                    // Попробуем разные кодировки
+                    string content = null;
+                    var encodings = new[] { Encoding.UTF8, Encoding.Default, Encoding.GetEncoding(1251) };
+                    
+                    foreach (var encoding in encodings)
+                    {
+                        try
+                        {
+                            content = File.ReadAllText(filePath, encoding);
+                            Console.WriteLine($"Успешно прочитан файл с кодировкой {encoding.EncodingName}");
+                            break;
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                    
+                    if (content == null)
+                    {
+                        // Последняя попытка - байты
+                        var bytes = File.ReadAllBytes(filePath);
+                        content = Encoding.UTF8.GetString(bytes);
+                    }
+                    
                     Console.WriteLine($"Прочитано {content.Length} символов из TXT файла");
+                    Console.WriteLine($"Первые 100 символов: {content.Substring(0, Math.Min(100, content.Length))}");
+                    
                     return content;
                 }
                 catch (Exception ex)

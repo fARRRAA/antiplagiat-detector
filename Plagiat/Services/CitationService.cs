@@ -12,21 +12,29 @@ namespace Plagiat.Services
     public class CitationService
     {
         private readonly OpenRouterService _openRouterService;
+        public static Action<string> LogAction;
 
         public CitationService(OpenRouterService openRouterService)
         {
             _openRouterService = openRouterService;
+        }
+        
+        private void LogDebug(string message)
+        {
+            LogAction?.Invoke(message);
+            Console.WriteLine(message); // Дублируем в консоль
         }
 
         public async Task<List<Citation>> FindCitationsInTextAsync(string text, int documentId)
         {
             var citations = new List<Citation>();
 
-            Console.WriteLine($"Поиск цитат в тексте длиной {text.Length} символов...");
+            LogDebug($"Поиск цитат в тексте длиной {text.Length} символов...");
+            LogDebug($"Первые 200 символов текста: {text.Substring(0, Math.Min(200, text.Length))}");
 
             // Поиск прямых цитат в кавычках
             var directQuotes = FindDirectQuotes(text);
-            Console.WriteLine($"Найдено прямых цитат: {directQuotes.Count}");
+            LogDebug($"Найдено прямых цитат: {directQuotes.Count}");
             foreach (var quote in directQuotes)
             {
                 citations.Add(new Citation
@@ -42,7 +50,7 @@ namespace Plagiat.Services
 
             // Поиск блочных цитат (отступы)
             var blockQuotes = FindBlockQuotes(text);
-            Console.WriteLine($"Найдено блочных цитат: {blockQuotes.Count}");
+            LogDebug($"Найдено блочных цитат: {blockQuotes.Count}");
             foreach (var quote in blockQuotes)
             {
                 citations.Add(new Citation
@@ -58,7 +66,7 @@ namespace Plagiat.Services
 
             // Поиск цитат с указанием источников (например, "по словам...", "как отмечает...")
             var indirectQuotes = FindIndirectQuotes(text);
-            Console.WriteLine($"Найдено косвенных цитат: {indirectQuotes.Count}");
+            LogDebug($"Найдено косвенных цитат: {indirectQuotes.Count}");
             foreach (var quote in indirectQuotes)
             {
                 citations.Add(new Citation
@@ -74,7 +82,7 @@ namespace Plagiat.Services
 
             // Поиск ссылок и номерных цитат
             var referenceQuotes = FindReferenceCitations(text);
-            Console.WriteLine($"Найдено ссылочных цитат: {referenceQuotes.Count}");
+            LogDebug($"Найдено ссылочных цитат: {referenceQuotes.Count}");
             foreach (var quote in referenceQuotes)
             {
                 citations.Add(new Citation
@@ -88,14 +96,14 @@ namespace Plagiat.Services
                 });
             }
 
-            // Использование AI для поиска дополнительных цитат
+            // Использование AI для поиска дополнительных цитат (ВРЕМЕННО ОТКЛЮЧЕНО)
             try
             {
-                Console.WriteLine("Используем AI для поиска дополнительных цитат...");
-                var aiQuotes = await _openRouterService.IdentifyQuotationsAsync(text);
-                var aiCitations = ParseAIQuotations(aiQuotes, documentId);
-                Console.WriteLine($"AI нашел дополнительных цитат: {aiCitations.Count}");
-                citations.AddRange(aiCitations);
+                Console.WriteLine("AI поиск цитат временно отключен для диагностики");
+                // var aiQuotes = await _openRouterService.IdentifyQuotationsAsync(text);
+                // var aiCitations = ParseAIQuotations(aiQuotes, documentId);
+                // Console.WriteLine($"AI нашел дополнительных цитат: {aiCitations.Count}");
+                // citations.AddRange(aiCitations);
             }
             catch (Exception ex)
             {
@@ -105,7 +113,7 @@ namespace Plagiat.Services
             // Валидация и очистка найденных цитат
             citations = ValidateAndCleanCitations(citations);
 
-            Console.WriteLine($"Всего найдено цитат после валидации: {citations.Count}");
+            LogDebug($"Всего найдено цитат после валидации: {citations.Count}");
             return citations;
         }
 
@@ -134,26 +142,8 @@ namespace Plagiat.Services
 
         public string FormatCitation(Citation citation, CitationStyle style)
         {
-            if (citation.Source == null)
-                return citation.QuotedText;
-
-            var formattedReference = citation.Source.GetFormattedReference(style);
-
-            switch (citation.Type)
-            {
-                case CitationType.Direct:
-                    return FormatDirectCitation(citation, formattedReference, style);
-                case CitationType.Indirect:
-                    return FormatIndirectCitation(citation, formattedReference, style);
-                case CitationType.Block:
-                    return FormatBlockCitation(citation, formattedReference, style);
-                case CitationType.Epigraph:
-                    return FormatEpigraphCitation(citation, formattedReference, style);
-                case CitationType.Reference:
-                    return FormatReferenceCitation(citation, formattedReference, style);
-                default:
-                    return citation.QuotedText;
-            }
+            // Простое форматирование без источников
+            return FormatSimpleCitation(citation, style);
         }
 
         public string GenerateInTextCitation(Citation citation, CitationStyle style)
@@ -189,30 +179,38 @@ namespace Plagiat.Services
             // Улучшенные паттерны для поиска цитат в различных типах кавычек
             var patterns = new[]
             {
-                @"«([^»]{10,500})»", // Русские кавычки
-                @"""([^""{10,500})""", // Английские двойные кавычки
-                @"'([^']{10,500})'", // Одинарные кавычки
+                @"«([^»]{5,500})»", // Русские кавычки - СНИЖЕН МИНИМУМ ДЛЯ ТЕСТИРОВАНИЯ
+                @"""([^""]{5,500})""", // Английские двойные кавычки - СНИЖЕН МИНИМУМ
+                @"'([^']{5,500})'", // Одинарные кавычки - СНИЖЕН МИНИМУМ  
                 @"«([^»]*?)»(?:\s*\([^)]+\))?", // Кавычки с возможными ссылками
                 @"""([^""]*?)""(?:\s*\([^)]+\))?", // Английские кавычки с ссылками
             };
 
             foreach (var pattern in patterns)
             {
+                LogDebug($"Ищем по паттерну: {pattern}");
                 var matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                LogDebug($"Найдено совпадений: {matches.Count}");
 
                 foreach (Match match in matches)
                 {
                     var quotedText = match.Groups[1].Value.Trim();
+                    LogDebug($"Потенциальная цитата: {quotedText.Substring(0, Math.Min(50, quotedText.Length))}...");
 
                     // Валидация найденной цитаты
                     if (IsValidQuote(quotedText))
                     {
+                        LogDebug($"Цитата прошла валидацию");
                         quotes.Add(new QuoteMatch
                         {
                             Text = quotedText,
                             StartPosition = match.Index,
                             EndPosition = match.Index + match.Length
                         });
+                    }
+                    else
+                    {
+                        LogDebug($"Цитата НЕ прошла валидацию");
                     }
                 }
             }
@@ -310,8 +308,7 @@ namespace Plagiat.Services
                 // Паттерны для ссылок на источники
                 @"как показано в\s+([^,\.]{3,50}),?\s*([^\.]{20,300})",
                 @"см\.?\s*([^,\.]{3,50}),?\s*([^\.]{20,300})",
-                @"цит\.?\s*по:?\s*([^,\.]{3,50}),?\s*([^\.]{20,300})",
-                @"источник:?\s*([^,\.]{3,50}),?\s*([^\.]{20,300})"
+                @"цит\.?\s*по:?\s*([^,\.]{3,50}),?\s*([^\.]{20,300})"
             };
 
             foreach (var pattern in patterns)
@@ -575,19 +572,38 @@ namespace Plagiat.Services
 
         private bool IsValidQuote(string text)
         {
+            LogDebug($"Валидация цитаты: '{text}'");
+            
             if (string.IsNullOrWhiteSpace(text))
+            {
+                LogDebug("Отклонено: пустой текст");
                 return false;
+            }
 
-            // Минимальная длина
-            if (text.Length < 10)
+            // Минимальная длина - СНИЖЕНО ДЛЯ ТЕСТИРОВАНИЯ
+            if (text.Length < 5)
+            {
+                LogDebug($"Отклонено: слишком короткий ({text.Length} символов)");
                 return false;
+            }
 
             // Проверка на содержание букв (не только цифры и знаки)
             if (!Regex.IsMatch(text, @"[а-яёА-ЯЁa-zA-Z]"))
+            {
+                LogDebug("Отклонено: нет букв");
                 return false;
+            }
 
             // Проверка на осмысленное содержание
-            return ContainsMeaningfulContent(text);
+            var meaningful = ContainsMeaningfulContent(text);
+            if (!meaningful)
+            {
+                LogDebug("Отклонено: недостаточно осмысленного содержания");
+                return false;
+            }
+            
+            LogDebug("Цитата принята!");
+            return true;
         }
 
         private bool ContainsMeaningfulContent(string text)
@@ -772,6 +788,56 @@ namespace Plagiat.Services
         private string GenerateVancouverInTextCitation(Citation citation)
         {
             return $"({citation.Source.Id})";
+        }
+
+        // Простое форматирование цитат
+        private string FormatSimpleCitation(Citation citation, CitationStyle style)
+        {
+            var text = citation.QuotedText.Trim();
+            
+            // Обрезаем слишком длинные цитаты
+            if (text.Length > 150)
+            {
+                text = text.Substring(0, 147) + "...";
+            }
+
+            switch (style)
+            {
+                case CitationStyle.GOST:
+                    return citation.Type == CitationType.Direct 
+                        ? $"«{text}»"
+                        : $"📝 {text}";
+                        
+                case CitationStyle.APA:
+                    return citation.Type == CitationType.Direct 
+                        ? $"\"{text}\""
+                        : $"{text}";
+                        
+                case CitationStyle.MLA:
+                    return citation.Type == CitationType.Direct 
+                        ? $"⟨{text}⟩"
+                        : $"{text}";
+                        
+                case CitationStyle.Chicago:
+                    return citation.Type == CitationType.Direct 
+                        ? $"『{text}』"
+                        : $"{text}";
+                        
+                case CitationStyle.Harvard:
+                    return citation.Type == CitationType.Direct 
+                        ? $"‹{text}›"
+                        : $"{text}";
+                        
+                case CitationStyle.Vancouver:
+                    return citation.Type == CitationType.Direct 
+                        ? $"【{text}】"
+                        : $"{text}";
+                        
+                default:
+                    return citation.Type == CitationType.Direct 
+                        ? $"«{text}»"
+                        : $"{text}";
+            }
         }
 
         private List<Citation> ParseAIQuotations(List<string> aiResponses, int documentId)

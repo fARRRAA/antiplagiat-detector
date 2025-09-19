@@ -34,3 +34,41 @@ C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\obj\Debug\Plagia
 C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.exe
 C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.pdb
 C:\Users\Ильдар\source\repos\antiplagiat-detector\Plagiat\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\Plagiat.exe.config
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\Plagiat.exe
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\Plagiat.pdb
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\EntityFramework.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HandyControl.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\itextsharp.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\EntityFramework.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HandyControl.pdb
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HandyControl.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\itextsharp.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.csproj.AssemblyReference.cache
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Views\SimpleParaphraseDialog.baml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\MainWindow.g.cs
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Views\SimpleParaphraseDialog.g.cs
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\App.g.cs
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat_MarkupCompile.cache
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat_MarkupCompile.lref
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\App.baml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\MainWindow.baml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.g.resources
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.Properties.Resources.resources
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.csproj.GenerateResource.cache
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.csproj.CoreCompileInputs.cache
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.csproj.Up2Date
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.exe
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Plagiat.pdb
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Views\MultiParaphraseDialog.baml
+C:\Users\Emil\Downloads\Telegram Desktop\antiplagiat-detector\antiplagiat-detector\Plagiat\obj\Debug\Views\MultiParaphraseDialog.g.cs

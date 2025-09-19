@@ -1,0 +1,11 @@
+{
+  "openrouter": {
+    "apiKey": "YOUR_OPENROUTER_API_KEY_HERE",
+    "baseUrl": "https://openrouter.ai/api/v1",
+    "model": "deepseek/deepseek-chat-v3.1:free"
+  },
+  "advego": {
+    "apiKey": "YOUR_ADVEGO_API_KEY_HERE",
+    "baseUrl": "https://api.advego.com/plagiatus"
+  }
+}

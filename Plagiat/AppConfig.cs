@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using System.Configuration;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Plagiat
 {
@@ -256,8 +258,10 @@ namespace Plagiat
         {
             try
             {
-                // OpenRouter настройки
-                OpenRouterApiKey = ConfigurationManager.AppSettings["OpenRouter.ApiKey"] ?? "";
+                // Загружаем API ключи из JSON файла
+                LoadApiKeysFromJson();
+                
+                // OpenRouter настройки (без API ключа)
                 OpenRouterBaseUrl = ConfigurationManager.AppSettings["OpenRouter.BaseUrl"] ?? "https://openrouter.ai/api/v1";
                 DefaultModel = ConfigurationManager.AppSettings["OpenRouter.Model"] ?? "deepseek/deepseek-chat-v3.1:free";
                 
@@ -267,8 +271,7 @@ namespace Plagiat
                 if (int.TryParse(ConfigurationManager.AppSettings["OpenRouter.TimeoutSeconds"], out int timeout))
                     HttpTimeoutSeconds = timeout;
 
-                // Advego настройки
-                AntiPlagiatApiKey = ConfigurationManager.AppSettings["Advego.ApiKey"] ?? "";
+                // Advego настройки (без API ключа)
                 AntiPlagiatBaseUrl = ConfigurationManager.AppSettings["Advego.BaseUrl"] ?? "https://api.advego.com/plagiatus";
                 
                 if (int.TryParse(ConfigurationManager.AppSettings["Advego.MaxRetries"], out int advegoRetries))
@@ -296,6 +299,45 @@ namespace Plagiat
             {
                 // В случае ошибки используем значения по умолчанию
                 Console.WriteLine($"Ошибка загрузки конфигурации: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Загружает API ключи из JSON файла
+        /// </summary>
+        private void LoadApiKeysFromJson()
+        {
+            try
+            {
+                string apiKeysPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "apikeys.json");
+                if (!File.Exists(apiKeysPath))
+                {
+                    Console.WriteLine($"Файл с API ключами не найден: {apiKeysPath}");
+                    return;
+                }
+
+                string jsonContent = File.ReadAllText(apiKeysPath);
+                var apiConfig = JsonConvert.DeserializeObject<ApiKeysConfig>(jsonContent);
+
+                if (apiConfig?.OpenRouter != null)
+                {
+                    OpenRouterApiKey = apiConfig.OpenRouter.ApiKey ?? "";
+                    if (!string.IsNullOrEmpty(apiConfig.OpenRouter.BaseUrl))
+                        OpenRouterBaseUrl = apiConfig.OpenRouter.BaseUrl;
+                    if (!string.IsNullOrEmpty(apiConfig.OpenRouter.Model))
+                        DefaultModel = apiConfig.OpenRouter.Model;
+                }
+
+                if (apiConfig?.Advego != null)
+                {
+                    AntiPlagiatApiKey = apiConfig.Advego.ApiKey ?? "";
+                    if (!string.IsNullOrEmpty(apiConfig.Advego.BaseUrl))
+                        AntiPlagiatBaseUrl = apiConfig.Advego.BaseUrl;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при загрузке API ключей: {ex.Message}");
             }
         }
 
@@ -328,5 +370,38 @@ namespace Plagiat
             
             return apiKey.Substring(0, 4) + "..." + apiKey.Substring(apiKey.Length - 4);
         }
+    }
+
+    /// <summary>
+    /// Классы для загрузки API ключей из JSON файла
+    /// </summary>
+    public class ApiKeysConfig
+    {
+        [JsonProperty("openrouter")]
+        public OpenRouterConfig OpenRouter { get; set; }
+
+        [JsonProperty("advego")]
+        public AdvegoConfig Advego { get; set; }
+    }
+
+    public class OpenRouterConfig
+    {
+        [JsonProperty("apiKey")]
+        public string ApiKey { get; set; }
+
+        [JsonProperty("baseUrl")]
+        public string BaseUrl { get; set; }
+
+        [JsonProperty("model")]
+        public string Model { get; set; }
+    }
+
+    public class AdvegoConfig
+    {
+        [JsonProperty("apiKey")]
+        public string ApiKey { get; set; }
+
+        [JsonProperty("baseUrl")]
+        public string BaseUrl { get; set; }
     }
 }

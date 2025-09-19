@@ -54,6 +54,12 @@
                     Style="{StaticResource ButtonInfo}"
                     Click="ParaphraseAllButton_Click"
                     IsEnabled="False"/>
+            
+            <Button x:Name="FindCitationsManuallyButton" 
+                    Content="🔍 Найти цитаты"
+                    Style="{StaticResource ButtonPrimary}"
+                    Click="FindCitationsManuallyButton_Click"
+                    IsEnabled="False"/>
         </hc:UniformSpacingPanel>
         
         <!-- Основной контент -->
@@ -123,6 +129,23 @@
                     <ScrollViewer Grid.Row="1" Margin="15,0,15,10" 
                                   VerticalScrollBarVisibility="Auto"
                                   HorizontalScrollBarVisibility="Auto">
+                        <!-- ВРЕМЕННО: Заменяем на обычный TextBox для диагностики -->
+                        <TextBox x:Name="DocumentTextBox" 
+                                 AcceptsReturn="True"
+                                 AcceptsTab="True"
+                                 FontFamily="Segoe UI"
+                                 FontSize="14"
+                                 TextChanged="DocumentTextBox_TextChanged"
+                                 AllowDrop="True"
+                                 Drop="DocumentTextBox_Drop"
+                                 DragEnter="DocumentTextBox_DragEnter"
+                                 MinHeight="300"
+                                 TextWrapping="Wrap"
+                                 HorizontalScrollBarVisibility="Auto"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Padding="10"/>
+                        
+                        <!-- Оригинальный RichTextBox (закомментирован для тестирования)
                         <RichTextBox x:Name="DocumentRichTextBox" 
              AcceptsReturn="True"
              AcceptsTab="True"
@@ -135,15 +158,8 @@
              MinHeight="300"
              HorizontalScrollBarVisibility="Auto"
              VerticalScrollBarVisibility="Auto">
-                            <RichTextBox.Document>
-                                <FlowDocument ColumnWidth="NaN" 
-                      IsOptimalParagraphEnabled="False"
-                      IsHyphenationEnabled="False"
-                      PageWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=RichTextBox}}"
-                      PagePadding="10,10,10,10">
-                                </FlowDocument>
-                            </RichTextBox.Document>
                         </RichTextBox>
+                        -->
                     </ScrollViewer>
                     
                     <!-- Панель статуса -->
@@ -292,6 +308,36 @@
                                     Content="Экспортировать библиографию"
                                     Margin="15,0,15,15"
                                     Click="ExportBibliographyButton_Click"/>
+                        </Grid>
+                    </hc:TabItem>
+                    
+                    <!-- Вкладка диагностики -->
+                    <hc:TabItem Header="🔍 Диагностика">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Grid.Row="0" Text="Лог диагностики поиска цитат" FontWeight="Bold" Margin="15,15,15,10"/>
+                            
+                            <TextBox x:Name="DiagnosticTextBox" 
+                                     Grid.Row="1"
+                                     Margin="15,0,15,10"
+                                     IsReadOnly="True"
+                                     FontFamily="Consolas"
+                                     FontSize="11"
+                                     TextWrapping="Wrap"
+                                     VerticalScrollBarVisibility="Auto"
+                                     HorizontalScrollBarVisibility="Auto"
+                                     Background="#F5F5F5"
+                                     Text="Здесь будет отображаться диагностическая информация поиска цитат..."/>
+                            
+                            <Button Grid.Row="2" x:Name="ClearDiagnosticButton" 
+                                    Content="Очистить лог"
+                                    Margin="15,0,15,15"
+                                    Click="ClearDiagnosticButton_Click"/>
                         </Grid>
                     </hc:TabItem>
                 </hc:TabControl>

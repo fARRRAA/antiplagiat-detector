@@ -10,14 +10,18 @@ namespace Plagiat.Services
     public class OpenRouterService
     {
         private readonly HttpClient _httpClient;
-        private const string BaseUrl = "https://openrouter.ai/api/v1";
-        private const string ApiKey = "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";
-        private const string ModelName = "deepseek/deepseek-chat-v3.1:free";
+        private readonly string _baseUrl;
+        private readonly string _apiKey;
+        private readonly string _modelName;
 
         public OpenRouterService()
         {
+            _baseUrl = AppConfig.Instance.OpenRouterBaseUrl;
+            _apiKey = AppConfig.Instance.OpenRouterApiKey;
+            _modelName = AppConfig.Instance.DefaultModel;
+
             _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {ApiKey}");
+            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_apiKey}");
             _httpClient.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost");
             _httpClient.DefaultRequestHeaders.Add("X-Title", "Antiplagiat Assistant");
         }
@@ -188,19 +192,19 @@ namespace Plagiat.Services
         {
             var requestBody = new
             {
-                model = ModelName,
+                model = _modelName,
                 messages = new[]
                 {
                     new { role = "user", content = prompt }
                 },
-                max_tokens = 2000,
-                temperature = 0.7
+                max_tokens = AppConfig.Instance.MaxTokens,
+                temperature = AppConfig.Instance.Temperature
             };
 
             var json = JsonConvert.SerializeObject(requestBody);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync($"{BaseUrl}/chat/completions", content);
+            var response = await _httpClient.PostAsync($"{_baseUrl}/chat/completions", content);
             var responseContent = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

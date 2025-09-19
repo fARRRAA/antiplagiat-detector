@@ -1,0 +1,86 @@
+# API Keys
+apikeys.json
+Plagiat/apikeys.json
+Plagiat/bin/Debug/apikeys.json
+Plagiat/bin/Release/apikeys.json
+**/apikeys.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Files built by Visual Studio
+*.exe
+*.dll
+*.pdb
+*.lib
+*.obj
+*.pch
+*.tlog
+*.user
+*.sdf
+*.opensdf
+*.lastbuildstate
+*.idb
+*.cache
+*.res
+*.orig
+*.manifest
+*.tmp
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# NuGet packages
+*.nupkg
+packages/
+!packages/build/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
